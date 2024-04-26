@@ -16,16 +16,34 @@ The contract consists of two main components:
 
 ## Usage
 ### Identity Verification
-1. `registerIdentity`: Allows users to register their identity with the contract by providing username, phone number, email, Aadhar number, and cryptographic signature (v, r, s).
+`registerIdentity`: Allows users to register their identity with the contract by providing username, phone number, email, Aadhar number, and cryptographic signature (v, r, s).
    - Signature Verification: Users must generate a cryptographic signature using their private key and include it along with v, r, and s components to ensure data integrity and authentication.
 
-2. `requestUserData`: Enables verified third-party apps to request user data.
-
 ### Third-Party App Registration
-1. `registerThirdPartyApp`: Allows third-party apps to register with the contract by providing company name, email, phone number, and cryptographic signature (v, r, s).
+`registerThirdPartyApp`: Allows third-party apps to register with the contract by providing company name, email, phone number, and cryptographic signature (v, r, s).
    - Signature Verification: Third-party apps must generate a cryptographic signature using their private key and include it along with v, r, and s components to ensure data integrity and authentication.
-
-2. `verifyThirdPartyApp`: Allows the admin to verify registered third-party apps.
 
 ### Data Validation
 The `DataValidator` contract validates user data during registration and provides an initial dataset of users for testing purposes.
+
+### Signature Generation
+The Signature verification process is explained below:
+
+<img width="752" alt="Screenshot 2024-04-26 at 6 41 20 PM" src="https://github.com/shreya241103/Blockchain-based-identity-verification/assets/115857097/977efd7c-7284-461a-b711-757164861a0d">
+
+`Signing`:
+
+Create message to sign: Initiate the signing process by creating a message to be authenticated.
+Hash the message: Apply a cryptographic hash function to convert the message into a fixed-length string of characters.
+Sign the hash: Sign the hashed message using the private key of the signer.
+
+`Verification`:
+
+Recreate hash from the original message: Reconstruct the hash of the original message using the same inputs as during the signing process.
+Recover signer from signature and hash: Utilize the signature and reconstructed hash to recover the signer’s address.
+Compare recovered signer to claimed signer: Verify whether the recovered signer’s address matches the claimed signer’s address to determine the validity of the signature.
+
+### File Explantion:
+1. `IdentityVerfication.sol`: Contains the smart contract.
+2. `user_Signature_Generation.html`: Interface for users to generate a signature using their private key.
+3. `third_Party_Signature_Generation.html`: Interface for third-party apps to generate a signature using their private key. 
