@@ -9,6 +9,12 @@ This Solidity smart contract, `IdentityVerification`, facilitates the verificati
 - Cryptographic signature verification for user and app registration.
 - Admin privileges for verifying third-party applications and managing user data validation.
 
+## Use Case Diagram
+<img width="933" alt="Screenshot 2024-05-10 at 2 43 32 PM" src="https://github.com/shreya241103/Blockchain-based-identity-verification/assets/115857097/40b0a531-b944-404d-a3d5-6de0350918e6">
+
+## Flow Diagram
+<img width="1032" alt="Screenshot 2024-05-10 at 2 44 20 PM" src="https://github.com/shreya241103/Blockchain-based-identity-verification/assets/115857097/1575a766-52bf-4645-afd9-b8da47aa6356">
+
 ## Contract Structure
 The contract consists of two main components:
 1. **IdentityVerification**: Manages user identity registration and third-party app registration.
